@@ -3,4 +3,4 @@ project(bitcoin_encryption)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(bitcoin_encryption main.cpp)
+add_executable(bitcoin_encryption src/main.cpp)
