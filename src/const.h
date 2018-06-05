@@ -16,8 +16,7 @@
 
 
 // Definition for expansion
-#define EXPANSION_INPUT_BLOCK_SIZE 32
-#define EXPANSION_OUTPUT_BLOCK_SIZE 32
+#define EXPANSION_BLOCK_SIZE 32
 
 
 #endif //BITCOIN_ENCRYPTION_CONST_H
