@@ -19,4 +19,8 @@
 #define EXPANSION_BLOCK_SIZE 32
 
 
+// Definition for compression
+#define HASH_OUTPUT_SIZE 256
+
+
 #endif //BITCOIN_ENCRYPTION_CONST_H
