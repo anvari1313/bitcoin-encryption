@@ -8,6 +8,7 @@
 #include <bitset>
 #include "const.h"
 
-using MessageBlock =  std::bitset<MAX_MESSAGE_SIZE>;
+using PadParseMessageBlock =  std::bitset<PAD_PARSE_BLOCK_SIZE>;
+using ByteBitSet = std::bitset<CHAR_SIZE_BIT>;
 
 #endif //BITCOIN_ENCRYPTION_TYPES_H
