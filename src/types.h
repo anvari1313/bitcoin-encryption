@@ -14,5 +14,6 @@ using ByteBitSet = std::bitset<CHAR_SIZE_BIT>;
 
 // Expansion phase types
 using ExpansionInputBlock = std::bitset<EXPANSION_INPUT_BLOCK_SIZE>;
+using ExpansionOutputBlock = std::bitset<EXPANSION_OUTPUT_BLOCK_SIZE>;
 
 #endif //BITCOIN_ENCRYPTION_TYPES_H
