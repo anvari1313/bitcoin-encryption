@@ -7,7 +7,7 @@
 
 #include "../types.h"
 
-ExpansionInputBlock rot(unsigned int n, ExpansionInputBlock x);
-ExpansionInputBlock shf(unsigned int n, ExpansionInputBlock x);
+ExpansionBlock rot(unsigned int n, ExpansionBlock x);
+ExpansionBlock shf(unsigned int n, ExpansionBlock x);
 
 #endif //BITCOIN_ENCRYPTION_TOOLS_H

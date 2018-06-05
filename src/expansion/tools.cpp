@@ -3,3 +3,13 @@
 //
 
 #include "tools.h"
+
+ExpansionBlock rot(unsigned int n, ExpansionBlock x)
+{
+    return ExpansionBlock();
+}
+
+ExpansionBlock shf(unsigned int n, ExpansionBlock x)
+{
+    return ExpansionBlock();
+}
