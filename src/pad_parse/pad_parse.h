@@ -8,7 +8,7 @@
 #include <bitset>
 #include <string>
 #include <vector>
-#include "const.h"
+#include "../const.h"
 
 // Flags for Code
 #define VECTORIZED_PAD_PARSE_IMPLEMENTATION         // Determine the output can be vector or not
@@ -17,8 +17,8 @@
 
 #ifndef VECTORIZED_PAD_PARSE_IMPLEMENTATION
 std::bitset<MAX_MESSAGE_SIZE> *pad_parse(std::string message, size_t &message_block_count);
-#else
+#else // VECTORIZED_PAD_PARSE_IMPLEMENTATION
 std::vector<std::bitset<MAX_MESSAGE_SIZE>> pad_parse(std::string message, size_t &message_block_count);
-#endif
+#endif // VECTORIZED_PAD_PARSE_IMPLEMENTATION
 
 #endif //BITCOIN_ENCRYPTION_PADDING_PARSING_H

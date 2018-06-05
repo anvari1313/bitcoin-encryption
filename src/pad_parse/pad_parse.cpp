@@ -77,7 +77,7 @@ std::bitset<MAX_MESSAGE_SIZE> *pad_parse(std::string message, size_t &message_bl
 
     return blocks;
 }
-#else
+#else // VECTORIZED_PAD_PARSE_IMPLEMENTATION
 std::vector<std::bitset<MAX_MESSAGE_SIZE>> pad_parse(std::string message, size_t &message_block_count)
 {
     std::bitset<MAX_MESSAGE_SIZE> main_message_size(message.length());
@@ -95,7 +95,7 @@ std::vector<std::bitset<MAX_MESSAGE_SIZE>> pad_parse(std::string message, size_t
 
     for (int i = 0; i < message.length(); ++i) {
         if (i % MAX_PAYLOAD_BLOCK_SIZE_BYTE == 0 && i != 0) {
-            message_block[MAX_MESSAGE_SIZE - message_bit_proceed - 1] = 1;
+            message_block[MAX_MESSAGE_SIZE - message_bit_proceed - 1] = true;
             message_block |= main_message_size;
             blocks.push_back(message_block);
             message_bit_proceed = 0;
@@ -125,7 +125,7 @@ std::vector<std::bitset<MAX_MESSAGE_SIZE>> pad_parse(std::string message, size_t
 
     if (message_bit_proceed != MAX_PAYLOAD_BLOCK_SIZE_BYTE)
     {
-        message_block[MAX_MESSAGE_SIZE - message_bit_proceed - 1] = 1;
+        message_block[MAX_MESSAGE_SIZE - message_bit_proceed - 1] = true;
         message_block |= main_message_size;
 #ifdef PAD_PARSE_LOG_ENABLE
         cout << "Message Block " << message_block << endl;
@@ -136,4 +136,4 @@ std::vector<std::bitset<MAX_MESSAGE_SIZE>> pad_parse(std::string message, size_t
 
     return blocks;
 }
-#endif
+#endif // VECTORIZED_PAD_PARSE_IMPLEMENTATION
