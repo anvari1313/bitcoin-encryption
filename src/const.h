@@ -17,6 +17,7 @@
 
 // Definition for expansion
 #define EXPANSION_BLOCK_SIZE 32
+#define EXPANSION_BLOCK_COUNT_IN_SET 64
 
 
 // Definition for compression
