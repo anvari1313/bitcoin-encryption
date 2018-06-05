@@ -14,4 +14,8 @@
 #define PAD_PARSE_BLOCK_SIZE 512
 #define LENGHT_PART_LEN_BIT 64
 
+
+// Definition for expansion
+#define EXPANSION_INPUT_BLOCK_SIZE 32
+
 #endif //BITCOIN_ENCRYPTION_CONST_H
