@@ -17,7 +17,7 @@ void bitstream_init(BitStream &bitstream, size_t size);
 void bitstream_init(BitStream &bitstream, unsigned long long initial_value);
 
 
-bool &operator [](BitStream &bitstream, bool &value);
-std::ostream &operator <<(std::ostream &stream, BitStream &bitstream);
+//bool &operator [](BitStream &bitstream, size_t index);
+//std::ostream &operator <<(std::ostream &stream, BitStream &bitstream);
 
 #endif //BITCOIN_ENCRYPTION_BITSTREAM_H

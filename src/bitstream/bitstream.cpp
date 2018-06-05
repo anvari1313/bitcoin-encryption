@@ -16,16 +16,16 @@ void bitstream_init(BitStream &bitstream, unsigned long long initial_value)
 
 }
 
-bool &operator [](BitStream &bitstream, size_t index)
-{
-    return bitstream.bits[index];
-}
-
-std::ostream &operator <<(std::ostream &stream, BitStream &bitstream)
-{
-    for (int i = 0; i < bitstream.size; ++i) {
-        stream << bitstream.bits[i];
-    }
-
-    return stream;
-}
+//bool &operator [](BitStream &bitstream, size_t index)
+//{
+//    return bitstream.bits[index];
+//}
+//
+//std::ostream &operator <<(std::ostream &stream, BitStream &bitstream)
+//{
+//    for (int i = 0; i < bitstream.size; ++i) {
+//        stream << bitstream.bits[i];
+//    }
+//
+//    return stream;
+//}
