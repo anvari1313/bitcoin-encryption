@@ -1,0 +1,11 @@
+//
+// Created by ahmad on 6/5/18.
+//
+
+#ifndef BITCOIN_ENCRYPTION_COMPRESSION_H
+#define BITCOIN_ENCRYPTION_COMPRESSION_H
+
+
+
+
+#endif //BITCOIN_ENCRYPTION_COMPRESSION_H
