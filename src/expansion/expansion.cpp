@@ -32,6 +32,10 @@ std::vector<ExpansionBlockVec> expand(std::vector<PadParseMessageBlock> m) {
             w.push_back(eb);
         }
 
+        for (int i = 0; i < EXPANSION_BLOCK_COUNT_IN_SET; i++) {
+            w[i] = permutationBox(w[i]);
+        }
+
         ws.push_back(w);
     }
 
