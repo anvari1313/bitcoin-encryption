@@ -18,6 +18,7 @@ using ExpansionBlockSet = ExpansionBlock[EXPANSION_BLOCK_COUNT_IN_SET];
 
 // Compression phase types
 using HashBlock = std::bitset<HASH_OUTPUT_SIZE>;
+using HashBlockSegment = std::bitset<HASH_OUTPUT_SEGMENT_SIZE>;
 using Prime = unsigned long int;
 
 #endif //BITCOIN_ENCRYPTION_TYPES_H

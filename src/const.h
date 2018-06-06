@@ -22,6 +22,7 @@
 
 // Definition for compression
 #define HASH_OUTPUT_SIZE 256
+#define HASH_OUTPUT_SEGMENT_SIZE 32
 
 
 #endif //BITCOIN_ENCRYPTION_CONST_H
