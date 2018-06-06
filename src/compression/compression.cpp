@@ -9,7 +9,7 @@ HashBlock compress(std::vector<ExpansionBlockSet> m)
 {
 
     Prime a, b, c, d, e, f, g, h;
-    HashBlock result;
+
     Prime ks[] = {
             0x428a2f98,         // K0
             0x71374491,         // K1
@@ -76,7 +76,7 @@ HashBlock compress(std::vector<ExpansionBlockSet> m)
             0xbef9a3f7,         // K62
             0xc67178f2,         // K63
     };
-    Prime hs[] = {
+    HashBlockSegment hs[] = {
             0x6a09e667,         // H(0, 0)
             0xbb67ae85,         // H(0, 1)
             0x3c6ef372,         // H(0, 2)
@@ -87,17 +87,18 @@ HashBlock compress(std::vector<ExpansionBlockSet> m)
             0x5be0cd19          // H(0, 7)
     };
 
+
     // Iterate over all expansion blocks
     for(auto &mi : m)
     {
-        a = hs[0];
-        b = hs[1];
-        c = hs[2];
-        d = hs[3];
-        e = hs[4];
-        f = hs[5];
-        g = hs[6];
-        h = hs[7];
+        a = hs[0].to_ulong();
+        b = hs[1].to_ulong();
+        c = hs[2].to_ulong();
+        d = hs[3].to_ulong();
+        e = hs[4].to_ulong();
+        f = hs[5].to_ulong();
+        g = hs[6].to_ulong();
+        h = hs[7].to_ulong();
 
         for (int j = 0; j < EXPANSION_BLOCK_COUNT_IN_SET; ++j)
         {
@@ -114,15 +115,25 @@ HashBlock compress(std::vector<ExpansionBlockSet> m)
             a = 3 * t1 - t2;
         }
 
-        hs[0] = a + hs[0];
-        hs[1] = b + hs[1];
-        hs[2] = c + hs[2];
-        hs[3] = d + hs[3];
-        hs[4] = e + hs[4];
-        hs[5] = f + hs[5];
-        hs[6] = g + hs[6];
-        hs[7] = h + hs[7];
+        hs[0] = a + hs[0].to_ulong();
+        hs[1] = b + hs[1].to_ulong();
+        hs[2] = c + hs[2].to_ulong();
+        hs[3] = d + hs[3].to_ulong();
+        hs[4] = e + hs[4].to_ulong();
+        hs[5] = f + hs[5].to_ulong();
+        hs[6] = g + hs[6].to_ulong();
+        hs[7] = h + hs[7].to_ulong();
     }
+    HashBlock result(
+            hs[0].to_string() +
+            hs[1].to_string() +
+            hs[2].to_string() +
+            hs[3].to_string() +
+            hs[4].to_string() +
+            hs[5].to_string() +
+            hs[6].to_string() +
+            hs[7].to_string()
+    );
 
     return result;
 }
