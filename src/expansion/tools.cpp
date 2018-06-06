@@ -20,6 +20,14 @@ ExpansionBlock shf(unsigned int n, ExpansionBlock x)
     return shifted;
 }
 
+
+ExpansionBlock permutationBox(ExpansionBlock block) {
+    ExpansionBlock result;
+    for (int i = 0; i < EXPANSION_BLOCK_SIZE; i++) {
+        result[i] = block[EXPANSION_BLOCK_SIZE - 1 - i];
+    }
+}
+
 std::string HashBlockToString(HashBlock block) {
     std::string output;
     std::stringstream stream(block.to_string());
