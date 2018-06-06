@@ -15,6 +15,7 @@ using ByteBitSet = std::bitset<CHAR_SIZE_BIT>;
 // Expansion phase types
 using ExpansionBlock = std::bitset<EXPANSION_BLOCK_SIZE>;
 using ExpansionBlockSet = ExpansionBlock[EXPANSION_BLOCK_COUNT_IN_SET];
+using ExpansionBlockVec = std::vector<ExpansionBlock>;
 
 // Compression phase types
 using HashBlock = std::bitset<HASH_OUTPUT_SIZE>;
