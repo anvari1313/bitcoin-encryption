@@ -26,6 +26,8 @@ ExpansionBlock permutationBox(ExpansionBlock block) {
     for (int i = 0; i < EXPANSION_BLOCK_SIZE; i++) {
         result[i] = block[EXPANSION_BLOCK_SIZE - 1 - i];
     }
+
+    return result;
 }
 
 std::string HashBlockToString(HashBlock block) {
