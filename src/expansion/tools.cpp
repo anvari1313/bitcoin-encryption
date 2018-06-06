@@ -6,10 +6,14 @@
 
 ExpansionBlock rot(unsigned int n, ExpansionBlock x)
 {
-    return ExpansionBlock();
+    ExpansionBlock rotated = (x >> n) | (x << EXPANSION_BLOCK_SIZE - n);
+
+    return rotated;
 }
 
 ExpansionBlock shf(unsigned int n, ExpansionBlock x)
 {
-    return ExpansionBlock();
+    ExpansionBlock shifted = x >> n;
+
+    return shifted;
 }
