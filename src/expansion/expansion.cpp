@@ -34,7 +34,7 @@ std::vector<ExpansionBlockVec> expand(std::vector<PadParseMessageBlock> m) {
 
         ws.push_back(w);
     }
-    cout << w[0] << endl << w[1] << endl << w[2] << endl << w[63] << endl << endl << endl;
+
 
     return ws;
 }
