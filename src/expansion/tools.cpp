@@ -33,10 +33,11 @@ ExpansionBlock permutationBox(ExpansionBlock block) {
 std::string HashBlockToString(HashBlock block) {
     std::string output;
     std::stringstream stream(block.to_string());
+    char c;
     while(stream.good()) {
         std::bitset<8> bits;
         stream >> bits;
-        char c = char(bits.to_ulong());
+        c = char(bits.to_ulong());
         output += c;
     }
 
