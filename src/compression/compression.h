@@ -19,7 +19,7 @@ const Prime first_primes[] = {
         0x5be0cd19          // H(0, 7)
 };
 
-HashBlock compress(std::vector<ExpansionBlock> m);
+HashBlock compress(std::vector<ExpansionBlockVec> m);
 
 
 #endif //BITCOIN_ENCRYPTION_COMPRESSION_H

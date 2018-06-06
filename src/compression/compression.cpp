@@ -5,7 +5,7 @@
 #include "compression.h"
 #include "tools.h"
 
-HashBlock compress(std::vector<ExpansionBlockSet> m)
+HashBlock compress(std::vector<ExpansionBlockVec> m)
 {
 
     Prime a, b, c, d, e, f, g, h;
