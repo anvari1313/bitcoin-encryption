@@ -9,17 +9,17 @@
 #include "const.h"
 
 // Pad-Parse phase types
-using PadParseMessageBlock =  std::bitset<PAD_PARSE_BLOCK_SIZE>;
-using ByteBitSet = std::bitset<CHAR_SIZE_BIT>;
+typedef std::bitset<PAD_PARSE_BLOCK_SIZE>   PadParseMessageBlock;
+typedef std::bitset<CHAR_SIZE_BIT>          ByteBitSet;
 
 // Expansion phase types
-using ExpansionBlock = std::bitset<EXPANSION_BLOCK_SIZE>;
-using ExpansionBlockSet = ExpansionBlock[EXPANSION_BLOCK_COUNT_IN_SET];
-using ExpansionBlockVec = std::vector<ExpansionBlock>;
+typedef std::bitset<EXPANSION_BLOCK_SIZE>     ExpansionBlock;
+//using ExpansionBlockSet = ExpansionBlock[EXPANSION_BLOCK_COUNT_IN_SET];
+typedef std::vector<ExpansionBlock> ExpansionBlockVec;
 
 // Compression phase types
-using HashBlock = std::bitset<HASH_OUTPUT_SIZE>;
-using HashBlockSegment = std::bitset<HASH_OUTPUT_SEGMENT_SIZE>;
-using Prime = unsigned long int;
+typedef std::bitset<HASH_OUTPUT_SIZE> HashBlock;
+typedef std::bitset<HASH_OUTPUT_SEGMENT_SIZE> HashBlockSegment;
+typedef unsigned long int Prime;
 
 #endif //BITCOIN_ENCRYPTION_TYPES_H
