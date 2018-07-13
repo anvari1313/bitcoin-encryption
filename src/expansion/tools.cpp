@@ -5,6 +5,7 @@
 #include "tools.h"
 #include <string>
 #include <sstream>
+#include <iostream>
 
 ExpansionBlock rot(unsigned int n, ExpansionBlock x)
 {
@@ -24,18 +25,22 @@ ExpansionBlock shf(unsigned int n, ExpansionBlock x)
 ExpansionBlock permutationBox(ExpansionBlock block) {
     ExpansionBlock result;
     int i = 0;
-    for (int i = 0; i < EXPANSION_BLOCK_SIZE / 2; i++) {
+    for ( ; i < EXPANSION_BLOCK_SIZE / 2; i++) {
         result[i] = block[EXPANSION_BLOCK_SIZE- i - 1];
+        std::cout << i << " " << block[EXPANSION_BLOCK_SIZE- i - 1] << " " << result[i] << std::endl;
     }
 
     for ( ; i < (EXPANSION_BLOCK_SIZE / 4) * 3; i++) {
         result[i] = block[i - 8];
+        std::cout << i << " " << block[i - 8] << " " << result[i] << std::endl;
     }
 
     for ( ; i < EXPANSION_BLOCK_SIZE; i++) {
         result[i] = block[EXPANSION_BLOCK_SIZE - i - 1];
+        std::cout << i << " " << block[EXPANSION_BLOCK_SIZE- i - 1] << " " << result[i] << std::endl;
     }
 
+    std::cout << "result = " << expansionBlockToHex(result) << std::endl;
     return result;
 }
 
