@@ -58,9 +58,9 @@ std::string hashBlockToHex(HashBlock block) {
     ByteBitSet c;
     std::stringstream stream;
 
-    for (int i = 0; i < HASH_OUTPUT_SEGMENT_SIZE; i++) {
-        for (int j = 0; j < CHAR_SIZE_BIT; j++) {
-            c[CHAR_SIZE_BIT - 1 - j] = block[HASH_OUTPUT_SIZE - 1 - (i * CHAR_SIZE_BIT) - j];
+    for (int i = 0; i < HASH_OUTPUT_SEGMENT_SIZE * 2; i++) {
+        for (int j = 0; j < CHAR_SIZE_BIT / 2; j++) {
+            c[(CHAR_SIZE_BIT / 2) - 1 - j] = block[HASH_OUTPUT_SIZE - 1 - (i * CHAR_SIZE_BIT / 2) - j];
         }
 
         stream << std::hex << c.to_ulong();
