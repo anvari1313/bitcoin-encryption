@@ -5,8 +5,12 @@
 #include "pad_parse/pad_parse.h"
 #include "bitstream/bitstream.h"
 #include "compression/compression.h"
+#include "expansion/tools.h"
+#include "expansion/expansion.h"
 
 using namespace std;
+
+HashBlock sha256(string message);
 
 int main() {
     bitset<4> a = 18;
@@ -20,12 +24,21 @@ int main() {
     cout << "ULong  : " << res.to_ulong() << endl;
     string message;
     cin >> message;
-    auto blocks = pad_parse(message);
-    cout << "-------------------------------------------------------------------------------" << endl;
-    for(auto &block : blocks)
-    {
-        cout << block << endl;
-    }
+
+    HashBlock firstResult = sha256(message);
+
+    cout << endl << hashBlockToHex(firstResult) << endl;
+
 
     return 0;
+
+}
+
+HashBlock sha256(string message) {
+    auto blocks = pad_parse(message);
+
+    auto ws = expand(blocks);
+
+
+    return compress(ws);
 }
