@@ -73,7 +73,7 @@ HashBlock compress(std::vector<ExpansionBlockVec> m)
             0x8cc70208,         // K59
             0x90befffa,         // K60
             0xa4506ceb,         // K61
-            0xbef9a3f7,         // K62
+            0xbe49a3f7,         // K62
             0xc67178f2,         // K63
     };
     HashBlockSegment hs[] = {

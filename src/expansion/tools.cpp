@@ -5,6 +5,7 @@
 #include "tools.h"
 #include <string>
 #include <sstream>
+#include <iostream>
 
 ExpansionBlock rot(unsigned int n, ExpansionBlock x)
 {
@@ -23,8 +24,17 @@ ExpansionBlock shf(unsigned int n, ExpansionBlock x)
 
 ExpansionBlock permutationBox(ExpansionBlock block) {
     ExpansionBlock result;
-    for (int i = 0; i < EXPANSION_BLOCK_SIZE; i++) {
-        result[i] = block[EXPANSION_BLOCK_SIZE - 1 - i];
+    int i = 0;
+    for ( ; i < EXPANSION_BLOCK_SIZE / 2; i++) {
+        result[i] = block[EXPANSION_BLOCK_SIZE- i - 1];
+    }
+
+    for ( ; i < (EXPANSION_BLOCK_SIZE / 4) * 3; i++) {
+        result[i] = block[i - 8];
+    }
+
+    for ( ; i < EXPANSION_BLOCK_SIZE; i++) {
+        result[i] = block[EXPANSION_BLOCK_SIZE - i - 1];
     }
 
     return result;
@@ -44,19 +54,35 @@ std::string HashBlockToString(HashBlock block) {
     return output;
 }
 
-std::string HashBlockToHex(HashBlock block) {
+std::string hashBlockToHex(HashBlock block) {
     ByteBitSet c;
     std::stringstream stream;
 
-    for (int i = 0; i < HASH_OUTPUT_SEGMENT_SIZE; i++) {
-        for (int j = 0; j < CHAR_SIZE_BIT; j++) {
-            c[CHAR_SIZE_BIT - 1 - j] = block[HASH_OUTPUT_SIZE - 1 - (i * CHAR_SIZE_BIT) - j];
+    for (int i = 0; i < HASH_OUTPUT_SEGMENT_SIZE * 2; i++) {
+        for (int j = 0; j < CHAR_SIZE_BIT / 2; j++) {
+            c[(CHAR_SIZE_BIT / 2) - 1 - j] = block[HASH_OUTPUT_SIZE - 1 - (i * CHAR_SIZE_BIT / 2) - j];
         }
 
         stream << std::hex << c.to_ulong();
 
     }
 
+
+    return stream.str();
+}
+
+std::string expansionBlockToHex(ExpansionBlock block) {
+    ByteBitSet c;
+    std::stringstream stream;
+
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < CHAR_SIZE_BIT / 2; j++) {
+            c[(CHAR_SIZE_BIT / 2 ) - 1 - j] = block[EXPANSION_BLOCK_SIZE - 1 - (i * CHAR_SIZE_BIT / 2) - j];
+        }
+
+        stream << std::hex << c.to_ulong();
+
+    }
 
     return stream.str();
 }
