@@ -15,12 +15,13 @@
 #define VECTORIZED_PAD_PARSE_IMPLEMENTATION         // Determine the output can be vector or not
 #define PAD_PARSE_LOG_ENABLE                        // Enable logging for this function
 
-
+#ifndef XILINIX_SDK
 #ifndef VECTORIZED_PAD_PARSE_IMPLEMENTATION
 PadParseMessageBlock *pad_parse(std::string message, size_t &message_block_count);
 #else // VECTORIZED_PAD_PARSE_IMPLEMENTATION
 std::vector<PadParseMessageBlock> pad_parse(const char *message, int message_size);
 #endif // VECTORIZED_PAD_PARSE_IMPLEMENTATION
-
+#else
 void pad_parse_(const char *message, int message_size, PadParseMessageBlock *message_blocks, int &message_block_count);
+#endif
 #endif //BITCOIN_ENCRYPTION_PADDING_PARSING_H

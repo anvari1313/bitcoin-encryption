@@ -7,7 +7,7 @@
 #include <iostream>
 
 using namespace std;
-
+#ifndef XILINIX_SDK
 #ifndef VECTORIZED_PAD_PARSE_IMPLEMENTATION
 PadParseMessageBlock[] pad_parse(char *message, int message_size, size_t &message_block_count)
 {
@@ -139,6 +139,9 @@ std::vector<PadParseMessageBlock> pad_parse(const char *message, int message_siz
 
     return blocks;
 }
+#endif // VECTORIZED_PAD_PARSE_IMPLEMENTATION
+
+#else
 
 void pad_parse_(const char *message, int message_size, PadParseMessageBlock *message_blocks, int &message_block_count)
 {
@@ -164,4 +167,4 @@ void pad_parse_(const char *message, int message_size, PadParseMessageBlock *mes
     }
 }
 
-#endif // VECTORIZED_PAD_PARSE_IMPLEMENTATION
+#endif
