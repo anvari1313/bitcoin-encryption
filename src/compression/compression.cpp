@@ -89,8 +89,9 @@ HashBlock compress(std::vector<ExpansionBlockVec> m)
 
 
     // Iterate over all expansion blocks
-    for(auto &mi : m)
+    for (int i = 0; i < m.size(); ++i)
     {
+        ExpansionBlockVec mi = m[i];
         a = hs[0].to_ulong();
         b = hs[1].to_ulong();
         c = hs[2].to_ulong();

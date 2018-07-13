@@ -14,7 +14,8 @@ std::vector<ExpansionBlockVec> expand(std::vector<PadParseMessageBlock> m) {
     ExpansionBlockVec w;
     ExpansionBlock eb, s1, s0;
 
-    for (auto &mi : m) {
+    for (int j = 0; j < m.size(); ++j) {
+        PadParseMessageBlock mi = m[j];
 
         for (int i = 0; i < EXPANSION_CHUNK_NUM; i++) { // making first 16 Wt
             for (int j = 0; j < EXPANSION_BLOCK_SIZE; j++) {
