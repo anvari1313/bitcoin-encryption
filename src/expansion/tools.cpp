@@ -23,8 +23,17 @@ ExpansionBlock shf(unsigned int n, ExpansionBlock x)
 
 ExpansionBlock permutationBox(ExpansionBlock block) {
     ExpansionBlock result;
-    for (int i = 0; i < EXPANSION_BLOCK_SIZE; i++) {
-        result[i] = block[EXPANSION_BLOCK_SIZE - 1 - i];
+    int i = 0;
+    for (int i = 0; i < EXPANSION_BLOCK_SIZE / 2; i++) {
+        result[i] = block[EXPANSION_BLOCK_SIZE- i - 1];
+    }
+
+    for ( ; i < (EXPANSION_BLOCK_SIZE / 4) * 3; i++) {
+        result[i] = block[i - 8];
+    }
+
+    for ( ; i < EXPANSION_BLOCK_SIZE; i++) {
+        result[i] = block[EXPANSION_BLOCK_SIZE - i - 1];
     }
 
     return result;
