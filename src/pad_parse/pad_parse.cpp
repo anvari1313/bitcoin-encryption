@@ -82,7 +82,7 @@ PadParseMessageBlock *pad_parse(std::string message, size_t &message_block_count
 
 std::vector<PadParseMessageBlock> pad_parse(std::string message)
 {
-    PadParseMessageBlock main_message_size_block(message.length());
+    PadParseMessageBlock main_message_size_block(message.length() * CHAR_SIZE_BIT); // cause input is in ascii chars
 #ifdef PAD_PARSE_LOG_ENABLE
     cout << "Main message size :" << main_message_size_block << endl;
 #endif // PAD_PARSE_LOG_ENABLE
