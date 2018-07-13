@@ -6,6 +6,7 @@
 #define BITCOIN_ENCRYPTION_TYPES_H
 
 #include <bitset>
+#include <vector>
 #include "const.h"
 
 // Pad-Parse phase types
