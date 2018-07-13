@@ -19,7 +19,8 @@
 #ifndef VECTORIZED_PAD_PARSE_IMPLEMENTATION
 PadParseMessageBlock *pad_parse(std::string message, size_t &message_block_count);
 #else // VECTORIZED_PAD_PARSE_IMPLEMENTATION
-std::vector<PadParseMessageBlock> pad_parse(std::string message);
+std::vector<PadParseMessageBlock> pad_parse(const char *message, int message_size);
 #endif // VECTORIZED_PAD_PARSE_IMPLEMENTATION
 
+void pad_parse_(const char *message, int message_size, PadParseMessageBlock *message_blocks, int &message_block_count);
 #endif //BITCOIN_ENCRYPTION_PADDING_PARSING_H

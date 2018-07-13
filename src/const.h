@@ -13,7 +13,7 @@
 #define MAX_PAYLOAD_BLOCK_SIZE_BYTE 56
 #define PAD_PARSE_BLOCK_SIZE 512
 #define LENGHT_PART_LEN_BIT 64
-
+#define MAX_MESSAGE_BLOCK_COUNT 4
 
 // Definition for expansion
 #define EXPANSION_BLOCK_SIZE 32
