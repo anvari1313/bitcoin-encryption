@@ -81,7 +81,7 @@ std::string expansionBlockToHex(ExpansionBlock block) {
 
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < CHAR_SIZE_BIT; j++) {
-            c[CHAR_SIZE_BIT - 1 - j] = block[HASH_OUTPUT_SIZE - 1 - (i * CHAR_SIZE_BIT) - j];
+            c[CHAR_SIZE_BIT - 1 - j] = block[EXPANSION_BLOCK_SIZE - 1 - (i * CHAR_SIZE_BIT) - j];
         }
 
         stream << std::hex << c.to_ulong();
