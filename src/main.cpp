@@ -15,9 +15,12 @@ HashBlock sha256(string message);
 #endif
 
 int main() {
+
+#ifdef XILINIX_SDK
     bitset<8> a, b, c;
     a = 'a'; b = 'b'; c = 2 ;
     cout << a << b << " " <<c << endl;
+
     PadParseMessageBlock mblock[4];
     int pad_parse_block_count;
     pad_parse_("abc", 3, mblock, pad_parse_block_count);
@@ -34,7 +37,7 @@ int main() {
     HashBlock h;
     compress_(expansion_block, expansion_block_count, h);
     cout << h << endl;
-
+#endif
 
 #ifndef XILINIX_SDK
 
@@ -43,7 +46,7 @@ int main() {
 
     HashBlock firstResult = sha256(message);
     cout << firstResult << endl;
-//    cout << endl << hashBlockToHex(firstResult) << endl;
+    cout << endl << hashBlockToHex(firstResult) << endl;
 #endif
     return 0;
 
